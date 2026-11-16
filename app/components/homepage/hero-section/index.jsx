@@ -30,6 +30,15 @@ function HeroSection() {
             <span className=" text-[#16f2b3]">{personalData.designation}</span>
             .
           </h1>
+          <p className="mt-5 max-w-xl text-sm text-gray-300 lg:text-base">
+            {personalData.tagline}
+          </p>
+          <p className="mt-3 text-xs text-gray-400 lg:text-sm">
+            Currently building{' '}
+            <Link href="https://www.wealthnx.ai" target="_blank" rel="noopener noreferrer" className="text-[#16f2b3] hover:underline">WealthNX AI</Link>
+            {' '}at{' '}
+            <Link href="https://inexor.ai" target="_blank" rel="noopener noreferrer" className="text-[#16f2b3] hover:underline">INEXOR</Link>.
+          </p>
 
           <div className="my-12 flex items-center gap-5">
             <Link
@@ -116,13 +125,13 @@ function HeroSection() {
                 <span className="text-gray-400">{`['`}</span>
                 <span className="text-amber-300">React</span>
                 <span className="text-gray-400">{"', '"}</span>
-                <span className="text-amber-300">MySql</span>
+                <span className="text-amber-300">Node.js</span>
                 <span className="text-gray-400">{"', '"}</span>
                 <span className="text-amber-300">Java</span>
                 <span className="text-gray-400">{"', '"}</span>
                 <span className="text-amber-300">Flutter</span>
                 <span className="text-gray-400">{"', '"}</span>
-                <span className="text-amber-300">SpringBoot</span>
+                <span className="text-amber-300">PostgreSQL</span>
                 <span className="text-gray-400">{"', '"}</span>
                 <span className="text-amber-300">Firebase</span>
                 <span className="text-gray-400">{"', '"}</span>

@@ -12,7 +12,7 @@ function Experience() {
     <div id="experience" className="relative z-50 border-t my-12 lg:my-24 border-[#25213b]">
       <Image
         src="/section.svg"
-        alt="Hero"
+        alt=""
         width={1572}
         height={795}
         className="absolute top-0 -z-10"
@@ -31,7 +31,7 @@ function Experience() {
       <div className="py-8">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-16">
           <div className="flex justify-center items-start">
-            <div className="w-full h-full">
+            <div className="w-full h-full lg:sticky lg:top-24">
               <AnimationLottie animationPath={experience} />
             </div>
           </div>
@@ -44,7 +44,7 @@ function Experience() {
                     <div className="p-3 relative">
                       <Image
                         src="/blur-23.svg"
-                        alt="Hero"
+                        alt=""
                         width={1080}
                         height={200}
                         className="absolute bottom-0 opacity-80"
@@ -54,17 +54,20 @@ function Experience() {
                           {experience.duration}
                         </p>
                       </div>
-                      <div className="flex items-center gap-x-8 px-3 py-5">
-                        <div className="text-violet-500  transition-all duration-300 hover:scale-125">
-                          <BsPersonWorkspace size={36} />
+                      <div className="flex items-start gap-x-6 px-3 py-5">
+                        <div className="text-violet-500 transition-all duration-300 hover:scale-125 mt-1 shrink-0">
+                          <BsPersonWorkspace size={32} />
                         </div>
                         <div>
-                          <p className="text-base sm:text-xl mb-2 font-medium uppercase">
+                          <p className="text-base sm:text-xl mb-1 font-medium uppercase">
                             {experience.title}
                           </p>
-                          <p className="text-sm sm:text-base">
+                          <p className="text-sm sm:text-base text-[#16f2b3] mb-3">
                             {experience.company}
                           </p>
+                          <ul className="list-disc pl-4 space-y-1.5 text-xs sm:text-sm text-gray-300">
+                            {experience.highlights?.map((h, i) => <li key={i}>{h}</li>)}
+                          </ul>
                         </div>
                       </div>
                     </div>
