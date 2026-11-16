@@ -1,37 +1,51 @@
-
 import { personalData } from "@/utils/data/personal-data";
-import Image from "next/image";
+import { FaMobileAlt, FaServer } from "react-icons/fa";
+import { HiOutlineGlobeAlt } from "react-icons/hi";
+import SectionHeading from "../../ui/section-heading";
 
+const focus = [
+  {
+    Icon: FaMobileAlt,
+    title: 'Mobile apps',
+    text: 'Cross-platform Flutter and React Native apps with clean architecture (GetX, Bloc, Provider) and Firebase.',
+  },
+  {
+    Icon: FaServer,
+    title: 'Backend & data',
+    text: 'Node.js, Java / Spring Boot, PHP and Django APIs on PostgreSQL, MySQL and Oracle, with secure auth and payments.',
+  },
+  {
+    Icon: HiOutlineGlobeAlt,
+    title: 'Web products',
+    text: 'React and Next.js front ends, Dockerised deployments and live products used by real customers.',
+  },
+];
 
 function AboutSection() {
   return (
-    <div id="about" className="my-12 lg:my-16 relative">
-      <div className="hidden lg:flex flex-col items-center absolute top-16 -right-8">
-        <span className="bg-[#1a1443] w-fit text-white rotate-90 p-2 px-5 text-xl rounded-md">
-          ABOUT ME
-        </span>
-        <span className="h-36 w-[2px] bg-[#1a1443]"></span>
-      </div>
-      <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-16">
-        <div className="order-2 lg:order-1">
-          <p className="font-medium mb-5 text-[#16f2b3] text-xl uppercase">
-            Who I am?
-          </p>
-          <p className="text-gray-200 text-sm lg:text-lg">
+    <section id="about" className="relative py-16 lg:py-24">
+      <SectionHeading index="01" eyebrow="About" title="Engineer, builder, product-minded" />
+      <div className="grid gap-10 lg:grid-cols-[1.1fr_0.9fr] lg:gap-14">
+        <div>
+          <p className="text-base leading-relaxed text-gray-300 sm:text-lg">
             {personalData.description}
           </p>
         </div>
-        <div className="flex justify-center order-1 lg:order-2">
-          <Image
-            src={personalData.profile}
-            width={280}
-            height={280}
-            alt="Muhammad Ahsan Siddiqui"
-            className="rounded-lg transition-all duration-1000 grayscale hover:grayscale-0 hover:scale-110 cursor-pointer"
-          />
+        <div className="flex flex-col gap-4">
+          {focus.map(({ Icon, title, text }) => (
+            <div key={title} className="glass glass-hover flex gap-4 rounded-2xl p-5">
+              <span className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-[#16f2b3]/10 text-[#16f2b3]">
+                <Icon size={20} />
+              </span>
+              <div>
+                <h3 className="font-semibold text-white">{title}</h3>
+                <p className="mt-1 text-sm leading-relaxed text-gray-400">{text}</p>
+              </div>
+            </div>
+          ))}
         </div>
       </div>
-    </div>
+    </section>
   );
 };
 

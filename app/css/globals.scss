@@ -3,37 +3,125 @@
 @tailwind utilities;
 
 :root {
-  --foreground-rgb: rgb(211, 216, 232);
+  --bg: #06070d;
+  --accent: #16f2b3;
+  --accent-2: #38bdf8;
+  --violet: #8b5cf6;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --foreground-rgb: 255, 255, 255;
-  }
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 5rem;
 }
 
 body {
-  color: rgb(var(--foreground-rgb));
-  background-color: #0d1224;
+  background-color: var(--bg);
+  color: #e5e7eb;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
-#sticky-card-1 {
-  --index: 1;
+::selection {
+  background: rgba(22, 242, 179, 0.3);
+  color: #fff;
 }
 
-#sticky-card-2 {
-  --index: 2;
+/* Ambient background: soft colour glows + faint grid, fixed behind everything */
+.bg-fx {
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+  background:
+    radial-gradient(60rem 38rem at 88% -8%, rgba(139, 92, 246, 0.2), transparent 60%),
+    radial-gradient(50rem 34rem at -8% 8%, rgba(22, 242, 179, 0.13), transparent 60%),
+    radial-gradient(40rem 30rem at 50% 115%, rgba(56, 189, 248, 0.1), transparent 60%);
 }
 
-#sticky-card-3 {
-  --index: 3;
+.bg-grid {
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+  background-image:
+    linear-gradient(rgba(255, 255, 255, 0.035) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.035) 1px, transparent 1px);
+  background-size: 56px 56px;
+  mask-image: radial-gradient(ellipse at 50% 0%, #000 20%, transparent 75%);
+  -webkit-mask-image: radial-gradient(ellipse at 50% 0%, #000 20%, transparent 75%);
 }
 
-#sticky-card-4 {
-  --index: 4;
+.glass {
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
 }
 
-.sticky-card {
-  // padding-top: calc(var(--index) * 2.5rem);
-  top: calc(var(--index) * 4rem);
+.glass-hover {
+  transition: border-color 0.3s ease, transform 0.3s ease, background 0.3s ease;
+}
+
+.glass-hover:hover {
+  border-color: rgba(22, 242, 179, 0.45);
+  background: rgba(255, 255, 255, 0.05);
+}
+
+.text-gradient {
+  background: linear-gradient(90deg, #16f2b3 0%, #38bdf8 55%, #8b5cf6 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.btn-primary {
+  background: linear-gradient(90deg, #16f2b3, #38bdf8);
+  color: #04120d;
+  font-weight: 600;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  box-shadow: 0 8px 30px -10px rgba(22, 242, 179, 0.6);
+}
+
+.btn-primary:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 12px 34px -10px rgba(22, 242, 179, 0.8);
+  color: #04120d;
+}
+
+.btn-ghost {
+  border: 1px solid rgba(255, 255, 255, 0.16);
+  color: #fff;
+  transition: border-color 0.2s ease, background 0.2s ease;
+}
+
+.btn-ghost:hover {
+  border-color: rgba(22, 242, 179, 0.6);
+  background: rgba(22, 242, 179, 0.08);
+  color: #fff;
+}
+
+@keyframes fade-up {
+  from { opacity: 0; transform: translateY(16px); }
+  to { opacity: 1; transform: none; }
+}
+
+.fade-up {
+  animation: fade-up 0.7s ease both;
+}
+
+.fade-up-2 { animation-delay: 0.12s; }
+.fade-up-3 { animation-delay: 0.24s; }
+
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-8px); }
+}
+
+.float {
+  animation: float 6s ease-in-out infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  .fade-up, .float { animation: none; }
 }

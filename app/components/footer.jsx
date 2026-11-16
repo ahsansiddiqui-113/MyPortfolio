@@ -1,39 +1,25 @@
 // @flow strict
+import { personalData } from '@/utils/data/personal-data';
 import Link from 'next/link';
 import { FaGithub, FaLinkedin } from "react-icons/fa";
 
 function Footer() {
   return (
-    <div className="relative border-t bg-[#0d1224] border-[#353951] text-white">
-      <div className="mx-auto px-6 sm:px-12 lg:max-w-[70rem] xl:max-w-[76rem] 2xl:max-w-[92rem] py-6 lg:py-10">
-        <div className="flex justify-center -z-40">
-          <div className="absolute top-0 h-[1px] w-1/2  bg-gradient-to-r from-transparent via-violet-500 to-transparent"></div>
-        </div>
-        <div className="flex flex-col md:flex-row items-center justify-between">
-          <p className="text-sm">
-            © {new Date().getFullYear()} Portfolio of<Link target="_blank" href="https://www.linkedin.com/in/ahsan-siddiqui1903" className="text-[#16f2b3]">Muhammad Ahsan Siddiqui</Link>
-          </p>
-          <div className="flex items-center gap-5">
-            <Link
-              target="_blank"
-              href="https://github.com/ahsansiddiqui-113"
-              className="flex items-center gap-2 uppercase hover:text-[#16f2b3]"
-            >
-              <FaGithub />
-              <span>GitHub</span>
-            </Link>
-            <Link
-              target="_blank"
-              href="https://www.linkedin.com/in/ahsan-siddiqui1903"
-              className="flex items-center gap-2 uppercase hover:text-[#16f2b3]"
-            >
-              <FaLinkedin />
-              <span>LinkedIn</span>
-            </Link>
-          </div>
+    <footer className="relative mt-8 border-t border-white/5">
+      <div className="mx-auto flex max-w-[78rem] flex-col items-center justify-between gap-4 px-5 py-8 text-sm text-gray-500 sm:px-8 md:flex-row">
+        <p>
+          &copy; {new Date().getFullYear()} {personalData.name}. Built with Next.js and Tailwind CSS.
+        </p>
+        <div className="flex items-center gap-5">
+          <Link target="_blank" href={personalData.github} className="flex items-center gap-2 hover:text-[#16f2b3]">
+            <FaGithub /> GitHub
+          </Link>
+          <Link target="_blank" href={personalData.linkedIn} className="flex items-center gap-2 hover:text-[#16f2b3]">
+            <FaLinkedin /> LinkedIn
+          </Link>
         </div>
       </div>
-    </div >
+    </footer>
   );
 };
 

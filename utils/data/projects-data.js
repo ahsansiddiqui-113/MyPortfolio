@@ -7,6 +7,7 @@ export const projectsData = [
   {
     id: 1,
     name: 'WealthNX AI',
+    image: '/projects/wealthnx-ai.png',
     tagline: 'AI-powered personal finance app for iOS, Android and web',
     description: "The flagship product of INEXOR. It brings accounts, stocks and crypto together with AI-powered insights so everyday savers can see net worth, spending and goals in one place. I build core features end to end across the Flutter app and the Node.js / PostgreSQL backend.",
     highlights: [
@@ -26,6 +27,7 @@ export const projectsData = [
   {
     id: 2,
     name: 'WealthNX Web',
+    image: '/projects/wealthnx-ai.png',
     tagline: 'Website and API behind wealthnx.ai',
     description: "The public web application for WealthNX, built on PHP and MySQL so it runs on low-cost shared hosting instead of a Node.js server. It serves the React front end and a REST API for contacts, wishlists, support tickets, email event tracking and cookie consent.",
     highlights: [
@@ -45,6 +47,7 @@ export const projectsData = [
   {
     id: 3,
     name: 'Inexor Website',
+    image: '/projects/inexor.png',
     tagline: 'Company website for Inexor Inc.',
     description: "The corporate website for Inexor, a technology company building intelligent systems. It presents the WealthNX AI flagship, research and perspectives, the trust and security approach, careers and FAQs.",
     highlights: [
@@ -63,6 +66,7 @@ export const projectsData = [
   {
     id: 4,
     name: 'CloakPaste',
+    image: '/projects/cloakpaste.png',
     tagline: 'Privacy-first screenshot redaction in your browser',
     description: "Paste a screenshot and CloakPaste finds and blacks out emails, phone numbers, IBANs, cards and national IDs in seconds. OCR, detection and export all run in the browser, so images are never uploaded. A small PHP / MySQL backend handles accounts, saved rules and billing.",
     highlights: [

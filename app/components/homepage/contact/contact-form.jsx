@@ -55,19 +55,16 @@ function ContactForm() {
   };
 
   return (
-    <div className="">
-      <p className="font-medium mb-5 text-[#16f2b3] text-xl uppercase">
-        Contact with me
-      </p>
-      <div className="max-w-3xl text-white rounded-lg border border-[#464c6a] p-3 lg:p-5">
-        <p className="text-sm text-[#d3d8e8]">
+    <div>
+      <div className="glass max-w-3xl rounded-2xl p-5 text-white lg:p-7">
+        <p className="text-sm leading-relaxed text-gray-400">
           {"If you have any questions or concerns, please don't hesitate to contact me. I am open to any work opportunities that align with my skills and interests."}
         </p>
         <div className="mt-6 flex flex-col gap-4">
           <div className="flex flex-col gap-2">
-            <label className="text-base">Your Name: </label>
+            <label className="text-sm text-gray-300">Your name</label>
             <input
-              className="bg-[#10172d] w-full border rounded-md border-[#353a52] focus:border-[#16f2b3] ring-0 outline-0 transition-all duration-300 px-3 py-2"
+              className="w-full rounded-lg border border-white/10 bg-white/[0.04] px-3.5 py-2.5 text-sm text-white outline-0 ring-0 transition-all duration-300 placeholder:text-gray-600 focus:border-[#16f2b3]"
               type="text"
               maxLength="100"
               required={true}
@@ -78,9 +75,9 @@ function ContactForm() {
           </div>
 
           <div className="flex flex-col gap-2">
-            <label className="text-base">Your Email: </label>
+            <label className="text-sm text-gray-300">Your email</label>
             <input
-              className="bg-[#10172d] w-full border rounded-md border-[#353a52] focus:border-[#16f2b3] ring-0 outline-0 transition-all duration-300 px-3 py-2"
+              className="w-full rounded-lg border border-white/10 bg-white/[0.04] px-3.5 py-2.5 text-sm text-white outline-0 ring-0 transition-all duration-300 placeholder:text-gray-600 focus:border-[#16f2b3]"
               type="email"
               maxLength="100"
               required={true}
@@ -97,9 +94,9 @@ function ContactForm() {
           </div>
 
           <div className="flex flex-col gap-2">
-            <label className="text-base">Your Message: </label>
+            <label className="text-sm text-gray-300">Your message</label>
             <textarea
-              className="bg-[#10172d] w-full border rounded-md border-[#353a52] focus:border-[#16f2b3] ring-0 outline-0 transition-all duration-300 px-3 py-2"
+              className="w-full rounded-lg border border-white/10 bg-white/[0.04] px-3.5 py-2.5 text-sm text-white outline-0 ring-0 transition-all duration-300 placeholder:text-gray-600 focus:border-[#16f2b3]"
               maxLength="500"
               name="message"
               required={true}
@@ -116,7 +113,7 @@ function ContactForm() {
               </p>
             }
             <button
-              className="flex items-center gap-1 hover:gap-3 rounded-full bg-gradient-to-r from-pink-500 to-violet-600 px-5 md:px-12 py-2.5 md:py-3 text-center text-xs md:text-sm font-medium uppercase tracking-wider text-white no-underline transition-all duration-200 ease-out hover:text-white hover:no-underline md:font-semibold"
+              className="btn-primary flex items-center gap-2 rounded-full px-8 py-3 text-center text-sm no-underline"
               role="button"
               onClick={handleSendMail}
             >

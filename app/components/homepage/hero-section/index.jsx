@@ -4,182 +4,102 @@ import { personalData } from "@/utils/data/personal-data";
 import Image from "next/image";
 import Link from "next/link";
 import { BsGithub, BsLinkedin } from "react-icons/bs";
-import { FaFacebook, FaTwitterSquare } from "react-icons/fa";
-import { MdDownload } from "react-icons/md";
-import { RiContactsFill } from "react-icons/ri";
-import { SiLeetcode } from "react-icons/si";
+import { FaStackOverflow } from "react-icons/fa";
+import { HiArrowRight, HiDownload } from "react-icons/hi";
+import { MdAlternateEmail } from "react-icons/md";
+
+const social = [
+  { href: personalData.github, label: 'GitHub', Icon: BsGithub },
+  { href: personalData.linkedIn, label: 'LinkedIn', Icon: BsLinkedin },
+  { href: personalData.stackOverflow, label: 'Stack Overflow', Icon: FaStackOverflow },
+  { href: `mailto:${personalData.email}`, label: 'Email', Icon: MdAlternateEmail },
+];
 
 function HeroSection() {
   return (
-    <section className="relative flex flex-col items-center justify-between py-4 lg:py-12">
-      <Image
-        src="/hero.svg"
-        alt="Hero"
-        width={1572}
-        height={795}
-        className="absolute -top-[98px] -z-10"
-      />
+    <section className="relative grid items-center gap-12 pb-12 pt-10 lg:grid-cols-[1.15fr_0.85fr] lg:gap-16 lg:pb-20 lg:pt-16">
+      <div className="order-2 lg:order-1">
+        <p className="fade-up glass mb-6 inline-flex items-center gap-2 rounded-full px-4 py-1.5 text-xs text-gray-300">
+          <span className="relative flex h-2 w-2">
+            <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-[#16f2b3] opacity-70"></span>
+            <span className="relative inline-flex h-2 w-2 rounded-full bg-[#16f2b3]"></span>
+          </span>
+          Open to opportunities &middot; {personalData.address}
+        </p>
 
-      <div className="grid grid-cols-1 items-start lg:grid-cols-2 lg:gap-12 gap-y-8">
-        <div className="order-2 lg:order-1 flex flex-col items-start justify-center p-2 pb-20 md:pb-10 lg:pt-10">
-          <h1 className="text-3xl font-bold leading-10 text-white md:font-extrabold lg:text-[2.6rem] lg:leading-[3.5rem]">
-            Hello, <br />
-            This is {' '}
-            <span className=" text-pink-500">{personalData.name}</span>
-            {` , I'm a Professional `}
-            <span className=" text-[#16f2b3]">{personalData.designation}</span>
-            .
-          </h1>
-          <p className="mt-5 max-w-xl text-sm text-gray-300 lg:text-base">
-            {personalData.tagline}
-          </p>
-          <p className="mt-3 text-xs text-gray-400 lg:text-sm">
-            Currently building{' '}
-            <Link href="https://www.wealthnx.ai" target="_blank" rel="noopener noreferrer" className="text-[#16f2b3] hover:underline">WealthNX AI</Link>
-            {' '}at{' '}
-            <Link href="https://inexor.ai" target="_blank" rel="noopener noreferrer" className="text-[#16f2b3] hover:underline">INEXOR</Link>.
-          </p>
+        <h1 className="fade-up fade-up-2 text-4xl font-extrabold leading-[1.05] tracking-tight text-white sm:text-5xl lg:text-[3.6rem]">
+          Hi, I&apos;m {personalData.name.split(' ').slice(0, 2).join(' ')}{' '}
+          <span className="text-gradient">{personalData.name.split(' ').slice(2).join(' ')}</span>
+        </h1>
 
-          <div className="my-12 flex items-center gap-5">
-            <Link
-              href={personalData.github}
-              target='_blank'
-              className="transition-all text-pink-500 hover:scale-125 duration-300"
-            >
-              <BsGithub size={30} />
-            </Link>
-            <Link
-              href={personalData.linkedIn}
-              target='_blank'
-              className="transition-all text-pink-500 hover:scale-125 duration-300"
-            >
-              <BsLinkedin size={30} />
-            </Link>
-            {/* <Link
-              href={personalData.facebook}
-              target='_blank'
-              className="transition-all text-pink-500 hover:scale-125 duration-300"
-            >
-              <FaFacebook size={30} />
-            </Link> */}
-            {/* <Link
-              href={personalData.leetcode}
-              target='_blank'
-              className="transition-all text-pink-500 hover:scale-125 duration-300"
-            >
-              <SiLeetcode size={30} />
-            </Link> */}
-            {/* <Link
-              href={personalData.twitter}
-              target='_blank'
-              className="transition-all text-pink-500 hover:scale-125 duration-300"
-            >
-              <FaTwitterSquare size={30} />
-            </Link> */}
-          </div>
+        <p className="fade-up fade-up-2 mt-4 text-lg font-medium text-[#16f2b3] sm:text-xl">
+          {personalData.designation}
+        </p>
 
-          <div className="flex items-center gap-3">
-            <Link href="#contact" className="bg-gradient-to-r to-pink-500 from-violet-600 p-[1px] rounded-full transition-all duration-300 hover:from-pink-500 hover:to-violet-600">
-              <button className="px-3 text-xs md:px-8 py-3 md:py-4 bg-[#0d1224] rounded-full border-none text-center md:text-sm font-medium uppercase tracking-wider text-[#ffff] no-underline transition-all duration-200 ease-out  md:font-semibold flex items-center gap-1 hover:gap-3">
-                <span>Contact me</span>
-                <RiContactsFill size={16} />
-              </button>
-            </Link>
+        <p className="fade-up fade-up-3 mt-5 max-w-xl text-base leading-relaxed text-gray-400 sm:text-lg">
+          {personalData.tagline}
+        </p>
 
-            <Link className="flex items-center gap-1 hover:gap-3 rounded-full bg-gradient-to-r from-pink-500 to-violet-600 px-3 md:px-8 py-3 md:py-4 text-center text-xs md:text-sm font-medium uppercase tracking-wider text-white no-underline transition-all duration-200 ease-out hover:text-white hover:no-underline md:font-semibold" role="button" target="_blank" href={personalData.resume}
-            >
-              <span>Get Resume</span>
-              <MdDownload size={16} />
-            </Link>
-          </div>
+        <p className="fade-up fade-up-3 mt-4 text-sm text-gray-500">
+          Currently building{' '}
+          <Link href="https://www.wealthnx.ai" target="_blank" rel="noopener noreferrer" className="text-white underline decoration-[#16f2b3]/50 underline-offset-4 hover:decoration-[#16f2b3]">WealthNX AI</Link>
+          {' '}at{' '}
+          <Link href="https://inexor.ai" target="_blank" rel="noopener noreferrer" className="text-white underline decoration-[#16f2b3]/50 underline-offset-4 hover:decoration-[#16f2b3]">INEXOR</Link>.
+        </p>
 
+        <div className="fade-up fade-up-3 mt-8 flex flex-wrap items-center gap-3">
+          <Link href="#projects" className="btn-primary inline-flex items-center gap-2 rounded-full px-6 py-3 text-sm no-underline">
+            View my work <HiArrowRight size={16} />
+          </Link>
+          <Link href="#contact" className="btn-ghost inline-flex items-center rounded-full px-6 py-3 text-sm no-underline">
+            Contact me
+          </Link>
+          <a href={personalData.resume} target="_blank" rel="noopener noreferrer" className="btn-ghost inline-flex items-center gap-2 rounded-full px-6 py-3 text-sm no-underline">
+            Resume <HiDownload size={16} />
+          </a>
         </div>
-        <div className="order-1 lg:order-2 from-[#0d1224] border-[#1b2c68a0] relative rounded-lg border bg-gradient-to-r to-[#0a0d37]">
-          <div className="flex flex-row">
-            <div className="h-[1px] w-full bg-gradient-to-r from-transparent via-pink-500 to-violet-600"></div>
-            <div className="h-[1px] w-full bg-gradient-to-r from-violet-600 to-transparent"></div>
-          </div>
-          <div className="px-4 lg:px-8 py-5">
-            <div className="flex flex-row space-x-2">
-              <div className="h-3 w-3 rounded-full bg-red-400"></div>
-              <div className="h-3 w-3 rounded-full bg-orange-400"></div>
-              <div className="h-3 w-3 rounded-full bg-green-200"></div>
+
+        <div className="fade-up fade-up-3 mt-8 flex items-center gap-3">
+          {social.map(({ href, label, Icon }) => (
+            <a
+              key={label}
+              href={href}
+              target={href.startsWith('mailto:') ? undefined : '_blank'}
+              rel="noopener noreferrer"
+              aria-label={label}
+              className="glass glass-hover flex h-11 w-11 items-center justify-center rounded-full text-gray-300 hover:text-[#16f2b3]"
+            >
+              <Icon size={18} />
+            </a>
+          ))}
+        </div>
+      </div>
+
+      <div className="order-1 flex justify-center lg:order-2">
+        <div className="relative w-full max-w-[15rem] sm:max-w-[22rem]">
+          <div className="absolute -inset-4 rounded-[2rem] bg-gradient-to-br from-[#16f2b3]/30 via-[#38bdf8]/20 to-[#8b5cf6]/30 blur-2xl" aria-hidden="true"></div>
+          <div className="relative rounded-[1.75rem] bg-gradient-to-br from-[#16f2b3]/60 via-white/10 to-[#8b5cf6]/60 p-[1.5px]">
+            <div className="overflow-hidden rounded-[1.7rem] bg-[#0b0d16]">
+              <Image
+                src={personalData.profile}
+                width={960}
+                height={1280}
+                priority
+                alt="Muhammad Ahsan Siddiqui"
+                className="aspect-[4/5] w-full object-cover object-top"
+              />
             </div>
           </div>
-          <div className="overflow-hidden border-t-[2px] border-indigo-900 px-4 lg:px-8 py-4 lg:py-8">
-            <code className="font-mono text-xs md:text-sm lg:text-base">
-              <div className="blink">
-                <span className="mr-2 text-pink-500">const</span>
-                <span className="mr-2 text-white">coder</span>
-                <span className="mr-2 text-pink-500">=</span>
-                <span className="text-gray-400">{'{'}</span>
-              </div>
-              <div>
-                <span className="ml-4 lg:ml-8 mr-2 text-white">name:</span>
-                <span className="text-gray-400">{`'`}</span>
-                <span className="text-amber-300">Muhammad Ahsan Siddiqui</span>
-                <span className="text-gray-400">{`',`}</span>
-              </div>
-              <div className="ml-4 lg:ml-8 mr-2">
-                <span className=" text-white">skills:</span>
-                <span className="text-gray-400">{`['`}</span>
-                <span className="text-amber-300">React</span>
-                <span className="text-gray-400">{"', '"}</span>
-                <span className="text-amber-300">Node.js</span>
-                <span className="text-gray-400">{"', '"}</span>
-                <span className="text-amber-300">Java</span>
-                <span className="text-gray-400">{"', '"}</span>
-                <span className="text-amber-300">Flutter</span>
-                <span className="text-gray-400">{"', '"}</span>
-                <span className="text-amber-300">PostgreSQL</span>
-                <span className="text-gray-400">{"', '"}</span>
-                <span className="text-amber-300">Firebase</span>
-                <span className="text-gray-400">{"', '"}</span>
-              </div>
-              <div>
-                <span className="ml-4 lg:ml-8 mr-2 text-white">hardWorker:</span>
-                <span className="text-orange-400">true</span>
-                <span className="text-gray-400">,</span>
-              </div>
-              <div>
-                <span className="ml-4 lg:ml-8 mr-2 text-white">quickLearner:</span>
-                <span className="text-orange-400">true</span>
-                <span className="text-gray-400">,</span>
-              </div>
-              <div>
-                <span className="ml-4 lg:ml-8 mr-2 text-white">problemSolver:</span>
-                <span className="text-orange-400">true</span>
-                <span className="text-gray-400">,</span>
-              </div>
-              <div>
-                <span className="ml-4 lg:ml-8 mr-2 text-green-400">hireable:</span>
-                <span className="text-orange-400">function</span>
-                <span className="text-gray-400">{'() {'}</span>
-              </div>
-              <div>
-                <span className="ml-8 lg:ml-16 mr-2 text-orange-400">return</span>
-                <span className="text-gray-400">{`(`}</span>
-              </div>
-              <div>
-                <span className="ml-12 lg:ml-24 text-cyan-400">this.</span>
-                <span className="mr-2 text-white">hardWorker</span>
-                <span className="text-amber-300">&amp;&amp;</span>
-              </div>
-              <div>
-                <span className="ml-12 lg:ml-24 text-cyan-400">this.</span>
-                <span className="mr-2 text-white">problemSolver</span>
-                <span className="text-amber-300">&amp;&amp;</span>
-              </div>
-              <div>
-                <span className="ml-12 lg:ml-24 text-cyan-400">this.</span>
-                <span className="mr-2 text-white">skills.length</span>
-                <span className="mr-2 text-amber-300">&gt;=</span>
-                <span className="text-orange-400">5</span>
-              </div>
-              <div><span className="ml-8 lg:ml-16 mr-2 text-gray-400">{`);`}</span></div>
-              <div><span className="ml-4 lg:ml-8 text-gray-400">{`};`}</span></div>
-              <div><span className="text-gray-400">{`};`}</span></div>
-            </code>
+
+          <div className="glass float absolute -bottom-5 -left-3 rounded-2xl px-4 py-3 shadow-xl sm:-left-8 !bg-[#0b0d16]/90">
+            <p className="text-2xl font-extrabold text-white">5+</p>
+            <p className="text-xs text-gray-400">years building software</p>
+          </div>
+          <div className="glass float absolute -right-3 top-6 rounded-2xl px-4 py-3 shadow-xl [animation-delay:1.5s] sm:-right-8 !bg-[#0b0d16]/90">
+            <p className="flex items-center gap-2 text-xs text-gray-300">
+              <span className="h-2 w-2 rounded-full bg-[#16f2b3]"></span> Live: WealthNX AI
+            </p>
+            <p className="mt-0.5 text-xs text-gray-500">Flutter &middot; Node.js &middot; PostgreSQL</p>
           </div>
         </div>
       </div>

@@ -1,84 +1,45 @@
 // @flow strict
 
 import { experiences } from "@/utils/data/experience";
-import Image from "next/image";
-import { BsPersonWorkspace } from "react-icons/bs";
-import AnimationLottie from "../../helper/animation-lottie";
-import GlowCard from "../../helper/glow-card";
-import experience from '/public/lottie/code.json';
+import SectionHeading from "../../ui/section-heading";
 
 function Experience() {
   return (
-    <div id="experience" className="relative z-50 border-t my-12 lg:my-24 border-[#25213b]">
-      <Image
-        src="/section.svg"
-        alt=""
-        width={1572}
-        height={795}
-        className="absolute top-0 -z-10"
-      />
+    <section id="experience" className="relative py-16 lg:py-24">
+      <SectionHeading index="02" eyebrow="Experience" title="Where I've built things">
+        From mission-critical healthcare systems to a fintech platform used on iOS, Android and web.
+      </SectionHeading>
 
-      <div className="flex justify-center my-5 lg:py-8">
-        <div className="flex  items-center">
-          <span className="w-24 h-[2px] bg-[#1a1443]"></span>
-          <span className="bg-[#1a1443] w-fit text-white p-2 px-5 text-xl rounded-md">
-            Experiences
-          </span>
-          <span className="w-24 h-[2px] bg-[#1a1443]"></span>
-        </div>
-      </div>
-
-      <div className="py-8">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-16">
-          <div className="flex justify-center items-start">
-            <div className="w-full h-full lg:sticky lg:top-24">
-              <AnimationLottie animationPath={experience} />
+      <ol className="relative ml-3 border-l border-white/10 sm:ml-4">
+        {experiences.map((exp, i) => (
+          <li key={exp.id} className="relative pb-10 pl-7 last:pb-0 sm:pl-10">
+            <span
+              className={`absolute -left-[7px] top-2 h-3.5 w-3.5 rounded-full border-2 border-[#06070d] ${i === 0 ? 'bg-[#16f2b3] shadow-[0_0_0_4px_rgba(22,242,179,0.18)]' : 'bg-gray-500'}`}
+              aria-hidden="true"
+            />
+            <div className="glass glass-hover rounded-2xl p-5 sm:p-6">
+              <div className="flex flex-wrap items-start justify-between gap-2">
+                <div>
+                  <h3 className="text-lg font-semibold text-white">{exp.title}</h3>
+                  <p className="text-sm font-medium text-[#16f2b3]">{exp.company}</p>
+                </div>
+                <span className="rounded-full border border-white/10 px-3 py-1 text-xs text-gray-400">
+                  {exp.duration.replace(/[()]/g, '')}
+                </span>
+              </div>
+              <ul className="mt-4 space-y-2 text-sm leading-relaxed text-gray-400">
+                {exp.highlights?.map((h, j) => (
+                  <li key={j} className="flex gap-2.5">
+                    <span className="mt-2 h-1 w-1 shrink-0 rounded-full bg-[#16f2b3]" aria-hidden="true" />
+                    <span>{h}</span>
+                  </li>
+                ))}
+              </ul>
             </div>
-          </div>
-
-          <div>
-            <div className="flex flex-col gap-6">
-              {
-                experiences.map(experience => (
-                  <GlowCard key={experience.id} identifier={`experience-${experience.id}`}>
-                    <div className="p-3 relative">
-                      <Image
-                        src="/blur-23.svg"
-                        alt=""
-                        width={1080}
-                        height={200}
-                        className="absolute bottom-0 opacity-80"
-                      />
-                      <div className="flex justify-center">
-                        <p className="text-xs sm:text-sm text-[#16f2b3]">
-                          {experience.duration}
-                        </p>
-                      </div>
-                      <div className="flex items-start gap-x-6 px-3 py-5">
-                        <div className="text-violet-500 transition-all duration-300 hover:scale-125 mt-1 shrink-0">
-                          <BsPersonWorkspace size={32} />
-                        </div>
-                        <div>
-                          <p className="text-base sm:text-xl mb-1 font-medium uppercase">
-                            {experience.title}
-                          </p>
-                          <p className="text-sm sm:text-base text-[#16f2b3] mb-3">
-                            {experience.company}
-                          </p>
-                          <ul className="list-disc pl-4 space-y-1.5 text-xs sm:text-sm text-gray-300">
-                            {experience.highlights?.map((h, i) => <li key={i}>{h}</li>)}
-                          </ul>
-                        </div>
-                      </div>
-                    </div>
-                  </GlowCard>
-                ))
-              }
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
+          </li>
+        ))}
+      </ol>
+    </section>
   );
 };
 

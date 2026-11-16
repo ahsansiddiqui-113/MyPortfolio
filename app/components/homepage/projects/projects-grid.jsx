@@ -20,7 +20,7 @@ export default function ProjectsGrid() {
 
   return (
     <>
-      <div className="flex flex-wrap justify-center gap-2 mb-10" role="tablist" aria-label="Filter projects">
+      <div className="mb-8 flex flex-wrap gap-2" role="tablist" aria-label="Filter projects">
         {available.map((f) => (
           <button
             key={f}
@@ -29,8 +29,8 @@ export default function ProjectsGrid() {
             onClick={() => setFilter(f)}
             className={`rounded-full border px-4 py-1.5 text-sm transition-all duration-200 ${
               filter === f
-                ? 'border-transparent bg-gradient-to-r from-pink-500 to-violet-600 text-white'
-                : 'border-[#1f223c] bg-[#11152c] text-gray-300 hover:border-violet-500'
+                ? 'border-transparent bg-white text-[#06070d] font-medium'
+                : 'border-white/10 bg-white/[0.03] text-gray-400 hover:border-white/30 hover:text-white'
             }`}
           >
             {f}
@@ -38,7 +38,7 @@ export default function ProjectsGrid() {
         ))}
       </div>
 
-      <div className="grid grid-cols-1 gap-6 lg:grid-cols-2">
+      <div className="grid grid-cols-1 gap-6 md:grid-cols-2 xl:grid-cols-3">
         {visible.map((project) => (
           <ProjectCard key={project.id} project={project} />
         ))}

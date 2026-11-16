@@ -6,6 +6,7 @@ import Footer from './components/footer';
 import Navbar from './components/navbar';
 import './css/card.scss';
 import './css/globals.scss';
+
 // Inter (variable) is bundled locally so builds never depend on Google Fonts being reachable.
 const inter = localFont({
   src: './fonts/Inter-Variable.woff2',
@@ -27,13 +28,17 @@ export const metadata = {
   twitter: { card: 'summary', title, description },
 };
 
+export const viewport = { themeColor: '#06070d' };
+
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <body className={inter.className}>
-        <ToastContainer />
-        <main className="min-h-screen relative mx-auto px-6 sm:px-12 lg:max-w-[70rem] xl:max-w-[76rem] 2xl:max-w-[92rem] text-white">
-          <Navbar />
+        <div className="bg-fx" aria-hidden="true" />
+        <div className="bg-grid" aria-hidden="true" />
+        <ToastContainer theme="dark" />
+        <Navbar />
+        <main className="relative mx-auto max-w-[78rem] px-5 text-white sm:px-8">
           {children}
         </main>
         <Footer />
