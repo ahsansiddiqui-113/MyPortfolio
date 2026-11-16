@@ -309,12 +309,32 @@ export const projectsData = [
     image: '/projects/quiz-app.png',
     featured: false,
   },
+  {
+    id: 19,
+    name: 'NudgePay',
+    tagline: 'Automatic, escalating invoice reminders',
+    description: "A SaaS that chases unpaid invoices for you. It sends escalating reminders (gentle on day 1, firm on day 7, final on day 14) until the invoice is paid. A daily cron worker is idempotent, so each stage is only ever sent once per invoice.",
+    highlights: [
+      'Free plan limited to 2 active invoices, enforced server-side with a 402 paywall; Pro adds custom schedules, templates and Reply-To',
+      'Paddle billing via webhook, with the user id passed through checkout custom data',
+      'Postgres schema with a UNIQUE(invoice_id, stage) reminder log for safe re-runs',
+    ],
+    tools: ['Next.js', 'TypeScript', 'Node.js', 'PostgreSQL', 'Tailwind CSS', 'Paddle'],
+    role: 'Full-Stack Developer',
+    status: 'In progress',
+    category: ['Web', 'Fintech', 'Backend'],
+    live: '',
+    code: `${GH}/NudgePay-`,
+    repo: 'NudgePay-',
+    featured: true,
+  },
 ];
 
 export const projectFilters = ['All', 'Live', 'Fintech', 'Mobile', 'Web', 'Backend', 'Desktop', 'AI'];
 
 // Short blurbs for repositories without a description on GitHub (used in "All repositories").
 export const repoBlurbs = {
+  'NudgePay-': 'Escalating invoice reminders (Next.js, Node, Postgres, Paddle).',
   'Universal-API-Playground': 'Universal API Playground, built in TypeScript.',
   'invo-mind': 'TypeScript web project.',
   'truzz': 'TypeScript web project.',
