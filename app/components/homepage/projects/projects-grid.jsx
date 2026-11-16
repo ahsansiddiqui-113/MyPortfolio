@@ -4,7 +4,7 @@ import { projectFilters, projectsData } from '@/utils/data/projects-data';
 import { useMemo, useState } from 'react';
 import ProjectCard from './project-card';
 
-const INITIAL_COUNT = 12; // enough to show every live project before "Show all"
+const INITIAL_COUNT = 13; // enough to show every live project before "Show all"
 const STATUS_ORDER = { 'Live': 0, 'In progress': 1, 'Source': 2 };
 
 function matches(project, filter) {
